@@ -1,0 +1,8 @@
+C:\Users\Admin\Desktop\New folder\FinallyMVC\ToolKit\bin\Debug\ProjectTemplates\CSharp\1033\ToolKit.zip
+C:\Users\Admin\Desktop\New folder\FinallyMVC\ToolKit\obj\Debug\ToolKit.csproj.AssemblyReference.cache
+C:\Users\Admin\Desktop\New folder\FinallyMVC\ToolKit\obj\Debug\_EmptyResource.resources
+C:\Users\Admin\Desktop\New folder\FinallyMVC\ToolKit\obj\Debug\ToolKit.csproj.GenerateResource.cache
+C:\Users\Admin\Desktop\New folder\FinallyMVC\ToolKit\obj\Debug\ToolKit.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\New folder\FinallyMVC\ToolKit\obj\Debug\CSharp\1033\ToolKit.zip
+C:\Users\Admin\Desktop\New folder\FinallyMVC\ToolKit\obj\Debug\ToolKit.dll
+C:\Users\Admin\Desktop\New folder\FinallyMVC\ToolKit\obj\Debug\ToolKit.pdb
