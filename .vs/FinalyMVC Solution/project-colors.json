@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "780e4b27-2b36-429e-adac-3592a42f554e": {
+      "ProjectGuid": "780e4b27-2b36-429e-adac-3592a42f554e",
+      "DisplayName": "FinallyMVC.WebUI",
+      "ColorIndex": 0
+    },
+    "a0cfcc69-ee0c-4be1-9b07-dbe235062b62": {
+      "ProjectGuid": "a0cfcc69-ee0c-4be1-9b07-dbe235062b62",
+      "DisplayName": "FinallyMVC.Domain",
+      "ColorIndex": 1
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 2
+}

@@ -31,7 +31,7 @@ namespace FinallyMVC.Domain.Business.ExperienceModule
                 }
 
                 Experience.Id = request.Id;
-                Experience.ImageURL = request.ImageURl;
+                Experience.ImageUrl = request.ImageURl;
 
                 await db.SaveChangesAsync(cancellationToken);
 

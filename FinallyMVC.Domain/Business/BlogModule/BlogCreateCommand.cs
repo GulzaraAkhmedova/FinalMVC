@@ -1,6 +1,7 @@
 ﻿using FinallyMVC.Domain.Models.DataContexts;
 using FinallyMVC.Domain.Models.Entities;
 using MediatR;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -11,7 +12,7 @@ namespace FinallyMVC.Domain.Business.BlogModule
     {
         public string Title { get; set; }
         public string Body { get; set; }
-        public string ImageURL { get; set; }
+        public IFormFile Image { get; set; }
         public DateTime? PublishDate { get; set; }
 
         public class BlogCreateCommandHandler : IRequestHandler<BlogCreateCommand, Blog>
@@ -29,7 +30,7 @@ namespace FinallyMVC.Domain.Business.BlogModule
                 {
                     Title = request.Title,
                     Body = request.Body, 
-                    ImageURL = request.ImageURL,
+                    //ImageURL = request.ImageURL,
                     PublishDate= request.PublishDate
                 };
 

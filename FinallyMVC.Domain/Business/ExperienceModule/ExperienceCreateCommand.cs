@@ -23,7 +23,7 @@ namespace FinallyMVC.Domain.Business.ExperienceModule
             {
                 var Experience = new Experience()
                 {
-                    ImageURL = request.ImageURL
+                    ImageUrl = request.ImageURL
                 };
 
                 await db.Experiences.AddAsync(Experience, cancellationToken);

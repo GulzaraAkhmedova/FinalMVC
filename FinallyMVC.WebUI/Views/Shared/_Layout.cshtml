@@ -9,7 +9,7 @@
     <!-- StyleSheets -->
     <link rel="stylesheet" href="~/assets/css/ionicons.min.css">
     <link rel="stylesheet" href="~/assets/css/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="~/assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/admin/fonts/font-awesome.min.css">
     <link rel="stylesheet" href="~/assets/css/main.css">
     <link rel="stylesheet" href="~/assets/css/style.css">
     <link rel="stylesheet" href="~/assets/css/responsive.css">
@@ -78,13 +78,10 @@
                                 <div class="col-sm-6"> <a id="cd-menu-trigger" href="#0"><span class="cd-menu-icon"></span></a> </div>
                             </div>
                         </div>
-
                         <!-- Resume -->
                         <div class="row">
-
                             <!-- Sidebar -->
                             @await Component.InvokeAsync("ProfessionalDetails")
-
                             <!-- MAIN CONTENT -->
                             <div class="col-md-8">
 
@@ -106,15 +103,8 @@
                                 <!-- NAV LINKS END -->
 
                                 <div class="tab-content">
-
                                     <!-- ABOUT ME -->
                                     @RenderBody()
-
-                                    <!-- RESUME -->
-                                    <!-- PORTFOLIO -->
-                                    <!-- BLOG -->
-                                    <!-- Contact -->
-
                                 </div>
                             </div>
                         </div>
@@ -124,25 +114,21 @@
         </main>
     <footer class="footer">
     <div class="rights">
-      <p>© Copyright 2016 MotiCV. All right reserved.</p>
+      <p>© Copyright 2022 Gulzara Ahmadli. All right reserved.</p>
     </div>
   </footer>
-  <!-- End Footer -->
- 
 </div>
-<!-- End Page Wrapper -->
-
-<!-- JavaScripts -->
-<script src="js/vendors/jquery/jquery.min.js"></script>
-<script src="js/vendors/bootstrap.min.js"></script>
-<script src="js/vendors/owl.carousel.min.js"></script>
-<script src="js/vendors/jquery.isotope.min.js"></script>
-<script src="js/main.js"></script>
+<script src="~/assets/js/vendors/jquery/jquery.min.js"></script>
+<script src="~/assets/js/vendors/bootstrap.min.js"></script>
+<script src="~/assets/js/vendors/owl.carousel.min.js"></script>
+<script src="~/assets/js/vendors/jquery.isotope.min.js"></script>
+<script src="~/assets/js/main.js"></script>
 
 <!-- Begin Map Script-->
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
-<script src="js/vendors/map.js"></script>
-</body>
+<script src="~/assets/js/vendors/map.js"></script>
 
+ @RenderSection("addjs", required:false)
+</body>
 <!-- Mirrored from new.uouapps.com/remoticv/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 19 May 2019 06:20:30 GMT -->
 </html>

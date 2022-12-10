@@ -8,7 +8,7 @@ namespace FinallyMVC.Domain.Models.DataContexts.Configurations
     {
         public void Configure(EntityTypeBuilder<Experience> builder)
         {
-            builder.Property(e => e.ImageURL)
+            builder.Property(e => e.ImageUrl)
                .IsRequired();
 
         }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
  
 namespace FinallyMVC.Domain.AppCode.Services
 {
-    public class EmailService
+    public class EmailService : IEmailService
     {
         private readonly EmailServiceOptions options;
 
@@ -15,41 +15,32 @@ namespace FinallyMVC.Domain.AppCode.Services
             this.options = options.Value;
         }
 
-        public async Task<bool> SendMailAsync(string toEmail, string subject, string messageText)
+        public async Task<bool> SendEmailAsync(string toEmail, string subject, string message)
         {
-            try
-            {
-                var client = new SmtpClient(options.SmtpServer, Convert.ToInt32(options.SmtpPort));
-                client.Credentials = new NetworkCredential(options.UserName, options.Password);
-                client.EnableSsl = true;
+            var smtpClient = new SmtpClient(options.SmtpHost, options.SmtpPort);
+            smtpClient.Credentials = new NetworkCredential(options.UserName, options.Password);
+            smtpClient.EnableSsl = options.EnableSsl;
 
-                var from = new MailAddress(options.UserName, options.DisplayName);
-                var to = new MailAddress(toEmail);
+            var from = new MailAddress(options.UserName, options.DisplayName);
+            var to = new MailAddress(toEmail);
 
-                var message = new MailMessage(from, to);
-                message.Subject = subject;
-                message.Body = messageText;
-                message.IsBodyHtml = true;
+            var mailMessage = new MailMessage(from, to);
+            mailMessage.Subject = subject;
+            mailMessage.Body = message;
+            mailMessage.IsBodyHtml = true;
 
-                await client.SendMailAsync(message);
-                return true;
-            }
-            catch (System.Exception)
-            {
-                return false;
-            }
+            await smtpClient.SendMailAsync(mailMessage);
+            return true;
         }
     }
+
     public class EmailServiceOptions
     {
         public string DisplayName { get; set; }
-        public string SmtpServer { get; set; }
+        public string SmtpHost { get; set; }
         public int SmtpPort { get; set; }
         public bool EnableSsl { get; set; }
         public string UserName { get; set; }
         public string Password { get; set; }
-        public string Cc { get; set; }
-
-
     }
 }

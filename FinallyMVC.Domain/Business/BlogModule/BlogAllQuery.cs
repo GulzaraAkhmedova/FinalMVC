@@ -11,6 +11,7 @@ namespace FinallyMVC.Domain.Business.BlogModule
 {
     public class BlogAllQuery :IRequest<List<Blog>>
     {
+        public int Size { get; set; }
         public class BlogsAllQueryHandler : IRequestHandler<BlogAllQuery, List<Blog>>
         {
             private readonly AppDbContext db;
@@ -24,6 +25,7 @@ namespace FinallyMVC.Domain.Business.BlogModule
             {
                 var data = await db.Blogs
                  .Where(m => m.DeletedDate == null)
+                 .Take(request.Size < 2 ? 2 : request.Size)
                  .ToListAsync(cancellationToken);
 
                 return data;

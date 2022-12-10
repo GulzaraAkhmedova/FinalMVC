@@ -14,7 +14,7 @@ namespace FinallyMVC.Domain.Models.DataContexts.Configurations
             builder.Property(c => c.Phone)
                 .IsRequired();
 
-            builder.Property(c => c.Title)
+            builder.Property(c => c.Subject)
                 .IsRequired();
 
             builder.Property(c => c.ImageURL)

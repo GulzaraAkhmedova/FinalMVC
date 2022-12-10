@@ -17,7 +17,7 @@ namespace FinallyMVC.Domain.Business.ContactModule
         public IFormFile Image { get; set; }
 
         public string Phone { get; set; }
-        public string Title { get; set; }
+        public string Subject { get; set; }
         public string Body { get; set; }
         public class ContactEditCommandHandler : IRequestHandler<ContactEditCommand, Contact>
         {
@@ -42,7 +42,7 @@ namespace FinallyMVC.Domain.Business.ContactModule
                 }
                 model.Id = request.Id;
                 model.Phone = request.Phone;
-                model.Title = request.Title;
+                model.Subject = request.Subject;
                 model.Body = request.Body;
 
                 if (request.Image == null)

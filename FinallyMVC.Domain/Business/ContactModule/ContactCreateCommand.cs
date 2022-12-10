@@ -11,7 +11,7 @@ namespace FinallyMVC.Domain.Business.ContactModule
 
         public string ImageURL { get; set; }
         public string Phone { get; set; }
-        public string Title { get; set; }
+        public string Subject { get; set; }
         public string Body { get; set; }
 
         public class ContactCreateCommandHandler : IRequestHandler<ContactCreateCommand, Contact>
@@ -29,7 +29,7 @@ namespace FinallyMVC.Domain.Business.ContactModule
                 {
                     ImageURL = request.ImageURL,
                     Phone = request.Phone,
-                    Title = request.Title,
+                    Subject = request.Subject,
                     Body = request.Body
                 };
 

@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace FinallyMVC.Domain.Models.DataContexts.Configurations
 {
-    public class InfoEntityTypeConfiguration : IEntityTypeConfiguration<Info>
+    public class IEntityTypeConfiguration : IEntityTypeConfiguration<Info>
     {
         public void Configure(EntityTypeBuilder<Info> builder)
         {

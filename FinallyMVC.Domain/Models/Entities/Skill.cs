@@ -12,5 +12,6 @@ namespace FinallyMVC.Domain.Models.Entities
         public string Body { get; set; }
         public string job { get; set; }
         public string WorkPlace { get; set; }
+        public int SkillType { get; set; }
     }
 }

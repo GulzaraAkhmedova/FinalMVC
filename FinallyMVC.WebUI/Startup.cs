@@ -1,9 +1,14 @@
+using FinallyMVC.Domain.AppCode.Services;
 using FinallyMVC.Domain.Models.DataContexts;
+using FinallyMVC.Domain.Models.Entities.Membership;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using MediatR;
+using Microsoft.AspNetCore.Antiforgery;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -30,17 +35,51 @@ namespace FinallyMVC.WebUI
             {
                 cfg.UseSqlServer(configuration.GetConnectionString("cString"));
             });
+            services.AddIdentity<FinallymvcUser, FinallymvcRole>()
+                .AddEntityFrameworkStores<AppDbContext>()
+                .AddDefaultTokenProviders();
+
+            //https://docs.fluentvalidation.net/en/latest/aspnet.html
+
+
+            services.AddScoped<UserManager<FinallymvcUser>>();
+            services.AddScoped<SignInManager<FinallymvcUser>>();
+            services.AddScoped<RoleManager<FinallymvcRole>>();
+
+
+            services.Configure<AntiforgeryOptions>(cfg =>
+            {
+                cfg.Cookie.Name = "Finaly-ant";
+            });
+
+            services.Configure<CryptoServiceOptions>(cfg =>
+            {
+                configuration.GetSection("cryptograpy").Bind(cfg);
+            });
+            services.AddSingleton<ICryptoService, CryptoService>();
+
+            services.Configure<EmailServiceOptions>(cfg =>
+            {
+                configuration.GetSection("emailAccount").Bind(cfg);
+            });
+            services.AddSingleton<IEmailService, EmailService>();
+
+            services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
             var assemblies = AppDomain.CurrentDomain
-                .GetAssemblies()
-                .Where(a => a.FullName.StartsWith("FinallyMVC."))
-                .ToArray();
+               .GetAssemblies()
+               .Where(a => a.FullName.StartsWith("FinallyMVC."))
+               .ToArray();
 
             services.AddMediatR(assemblies);
 
             //https://docs.fluentvalidation.net/en/latest/aspnet.html
 
             services.AddValidatorsFromAssemblies(assemblies, ServiceLifetime.Singleton);
+
+            services.AddAuthentication();
+            services.AddAuthorization();
         }
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -56,6 +95,7 @@ namespace FinallyMVC.WebUI
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
+            app.SeedMembership();
             app.UseStaticFiles();
 
             app.UseRouting();

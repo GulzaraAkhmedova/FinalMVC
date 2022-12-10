@@ -5,12 +5,13 @@ using System;
 
 namespace FinallyMVC.Domain.Models.DataContexts.Configurations.Membership
 {
-    public class FinallyRoleEntityTypeConfiguration : IEntityTypeConfiguration<FinallyRole>
+    public class FinallyRoleEntityTypeConfiguration : IEntityTypeConfiguration<FinallymvcRole>
     {
-        public void Configure(EntityTypeBuilder<FinallyRole> builder)
+        public void Configure(EntityTypeBuilder<FinallymvcRole> builder)
         {
-            
+            builder.ToTable("Roles", "Membership");
         }
+
     }
 }
 

@@ -11,8 +11,6 @@ namespace FinallyMVC.Domain.Business.ExperienceModule
     {
 
         public int Id { get; set; }
-
-
         public class ExperienceSingleQueryHandler : IRequestHandler<ExperienceSingleQuery, Experience>
         {
             private readonly AppDbContext db;
@@ -21,7 +19,6 @@ namespace FinallyMVC.Domain.Business.ExperienceModule
             {
                 this.db = db;
             }
-
             public async Task<Experience> Handle(ExperienceSingleQuery request, CancellationToken cancellationToken)
             {
                 var entity = await db.Experiences

@@ -20,8 +20,9 @@ namespace FinallyMVC.Domain.Business.PersonModule
         public string Phone { get; set; }
         public string Fax { get; set; }
         public string EMail { get; set; }
-        public string WebSite { get; set; }
 
+        public string WebSite { get; set; }
+      
         public class PersonEditCommandHandler : IRequestHandler<PersonEditCommand, Person>
         {
             private readonly AppDbContext db;
@@ -49,6 +50,7 @@ namespace FinallyMVC.Domain.Business.PersonModule
                 Person.Fax = request.Fax;
                 Person.EMail = request.EMail;
                 Person.WebSite = request.WebSite;
+              
 
                 await db.SaveChangesAsync(cancellationToken);
 

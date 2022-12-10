@@ -28,6 +28,9 @@ namespace FinallyMVC.Domain.Models.DataContexts
         public DbSet<Person> People { get; set; }
         public DbSet<Service> Serviceses { get; set; }
         public DbSet<Skill> Skills { get; set; }
+        public DbSet<Portfolio> Portfolios { get; set; }
+        public DbSet<SocialNetworking> SocialNetworkings { get; set; }
+        
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

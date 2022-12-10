@@ -11,10 +11,9 @@ namespace FinallyMVC.Domain.Models.DataContexts.Configurations
             builder.Property(b => b.Body)
                .IsRequired();
 
-            builder.Property(b => b.Title)
-                .IsRequired();
+            builder.Property(b => b.Title).IsRequired();
 
-            builder.Property(b => b.ImageURL)
+            builder.Property(b => b.ImageUrl)
                 .IsRequired();
 
             builder.Property(b => b.PublishDate)
